@@ -1,20 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        Segment segment = new Segment(new Point(10,100), new Point(110,99));
-        Segment[] perp2 = Segment.perpendicular(segment, segment.getP1());
+        Shape poly = new Polygon(new Vec2[]{new Vec2(120,60), new Vec2(270,280), new Vec2(240,320), new Vec2(110,80)});
+        Ellipse ellipse = new Ellipse(new Vec2(120,60), 5.5, 7.5);
 
-        System.out.println(segment.toSVG());
-        for(int i=0;i<perp2.length;i++)
-            System.out.println(perp2[i].toSVG());
-        System.out.println(segment.distance());
-
-//        Polygon poly = new Polygon(4);
-        Polygon poly = new Polygon(4,new Style("green","red",5));
-        poly.setPoints(new Point[]{new Point(120,30), new Point(170,180), new Point(240,320), new Point(110,30)});
-        System.out.println(poly.toSvg());
         SvgScene scene = new SvgScene();
         scene.add(poly);
-        scene.saveHtml("tmp.html");
+        scene.saveHtml("/tmp/scene.html");
 
+        SolidFillShapeDecorator polyDecorator = new SolidFillShapeDecorator(poly, "#000000");
+        SolidFillShapeDecorator ellipseDecorator = new SolidFillShapeDecorator(ellipse, "#FFFFFF");
+        StrokeShapeDecorator polyDecorator2 = new StrokeShapeDecorator(polyDecorator, "red", 12);
+        StrokeShapeDecorator ellipseDecorator2 = new StrokeShapeDecorator(ellipseDecorator,"red",3);
     }
 }
