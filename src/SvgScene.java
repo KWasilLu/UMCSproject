@@ -3,15 +3,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SvgScene {
-    private List<String> defs = new ArrayList<>();
+    private final List<String> defs = new ArrayList<>();
     private final List<Shape> shapes = new ArrayList<>();
-    private SvgScene instance = null;
+    private static SvgScene instance = null;
 
-    public SvgScene getInstance() {
+    public static SvgScene getInstance() {
         if (instance == null) {
-            this.instance = new SvgScene();
+            instance = new SvgScene();
         }
-        return this;
+        return instance;
     }
     public void addDef(String def) {
         this.defs.add(def);
