@@ -5,7 +5,7 @@ public class Main {
 
         SvgScene scene = new SvgScene();
         scene.add(poly);
-        scene.saveHtml("/tmp/scene.html");
+        scene.saveHtml("a.html");
 
         SolidFillShapeDecorator polyDecorator = new SolidFillShapeDecorator(poly, "#000000");
         SolidFillShapeDecorator ellipseDecorator = new SolidFillShapeDecorator(ellipse, "#FFFFFF");
