@@ -1,4 +1,4 @@
-public class SolidFillShapeDecorator extends ShapeDecorator{
+public class SolidFillShapeDecorator extends ShapeDecorator {
     private String color;
 
     public SolidFillShapeDecorator(Shape decoratedShape, String color) {
@@ -6,9 +6,8 @@ public class SolidFillShapeDecorator extends ShapeDecorator{
         this.color = color;
     }
 
-    @Override
     public String toSvg(String parameters) {
         String output = String.format("fill=\"%s\" %s ", color, parameters);
-        return super.toSvg(output);
+        return decoratedShape.toSvg(output);
     }
 }

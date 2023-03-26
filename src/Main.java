@@ -4,7 +4,7 @@ public class Main {
         Ellipse ellipse = new Ellipse(new Vec2(120,60), 5.5, 7.5);
 
         SvgScene scene = new SvgScene();
-        scene.addShape(poly);
+        scene.add(poly);
         scene.saveHtml("a.html");
 
         SolidFillShapeDecorator polyDecorator = new SolidFillShapeDecorator(poly, "#000000");
